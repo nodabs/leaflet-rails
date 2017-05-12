@@ -19,7 +19,7 @@ module Leaflet
       circles = options.delete(:circles)
       polylines = options.delete(:polylines)
       fitbounds = options.delete(:fitbounds)
-
+      fitmarkers = options.delete(:fitmarkers)
 
       output = []
       output << "<div id='#{container_id}'></div>" unless no_container
@@ -55,9 +55,8 @@ module Leaflet
         end
       end
       
-      if options[:fit_to_markers] && options[:markers] && (options[:markers].count > 1)
+      if fitmarkers and markers
         locations = markers.collect { |m| [m[:latlng][0].to_f, m[:latlng][1].to_f]  }
-        puts locations
         output << "map.fitBounds(L.latLngBounds(#{locations}),{maxZoom: 13});"
       end
 
