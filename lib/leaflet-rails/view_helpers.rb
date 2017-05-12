@@ -71,7 +71,7 @@ module Leaflet
       end
 
       if fitbounds
-        output << "map.fitBounds(L.latLngBounds(#{fitbounds}));"
+        output << "map.fitBounds(L.latLngBounds(#{fitbounds}),{maxZoom: 13});"
       end
 
       output << "L.tileLayer('#{tile_layer}', {
