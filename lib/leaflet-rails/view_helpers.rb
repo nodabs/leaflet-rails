@@ -56,7 +56,7 @@ module Leaflet
       end
       
       if options[:fit_to_markers] && options[:markers] && (options[:markers].count > 1)
-        locations = options[:markers].collect { |m| [m[:latlng][0].to_f, m[:latlng][1].to_f]  }
+        locations = markers.collect { |m| [m[:latlng][0].to_f, m[:latlng][1].to_f]  }
 
         output << "map.fitBounds(L.latLngBounds(#{locations}),{maxZoom: 13});"
       end
